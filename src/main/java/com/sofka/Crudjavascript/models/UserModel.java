@@ -9,11 +9,19 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id;
-
+    @Column(name = "nombre" , nullable = false)
     private String nombre;
-    private String email;
-    private Integer prioridad;
 
+    @Column(name = "email" , nullable = false)
+    private String email;
+
+    @Column(name = "prioridad" , nullable = false)
+    private Integer prioridad;
+    public UserModel(String nombre, String email, Integer prioridad) {
+        this.nombre = nombre;
+        this.email = email;
+        this.prioridad = prioridad;
+    }
     public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;
     }
@@ -42,11 +50,7 @@ public class UserModel {
         return email;
     }
 
-    public UserModel(String nombre, String email, Integer prioridad) {
-        this.nombre = nombre;
-        this.email = email;
-        this.prioridad = prioridad;
-    }
+
 
     public UserModel() {
 
