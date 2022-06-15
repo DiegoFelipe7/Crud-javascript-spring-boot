@@ -1,10 +1,9 @@
 package com.sofka.Crudjavascript.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "usuario")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

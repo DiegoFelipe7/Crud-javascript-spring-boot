@@ -43,6 +43,23 @@ public class UserController {
             return "No pudo eliminar el usuario con id" + id;
         }
     }
+    @GetMapping("/querys")
+    public ArrayList<UserModel> obtenerUsuarioPorEmail(@RequestParam("email") String email){
+        return this.userService.obtenerPorEmail(email);
+    }
+
+    @DeleteMapping(path = "/correo/{email}")
+    public String deleteEmail(@PathVariable("email") String email){
+        ArrayList<UserModel> usuarioModels = this.userService.obtenerPorEmail(email);
+        boolean ok = this.userService.eliminarEmail(usuarioModels.get(0).getId());
+        if (ok) {
+            return "Se eliminó el usuario " + email;
+        } else {
+            return "No pudo eliminar el usuario con id"+email;
+        }
+
+    }
+
 
 
 }
